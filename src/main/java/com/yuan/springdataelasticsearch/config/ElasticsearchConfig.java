@@ -38,7 +38,6 @@ public class ElasticsearchConfig {
 	@Bean(name = "elasticsearchTemplate")
 	public ElasticsearchTemplate getElasticsearchTemplate(){
  		Settings settings =Settings.builder().put("cluster.name", "elasticsearch").build();
-
 		InetAddress addr = null;
 		try {
 			addr = InetAddress.getByName("47.107.108.245");
@@ -48,7 +47,6 @@ public class ElasticsearchConfig {
 		InetSocketAddress ip=new InetSocketAddress(addr, 9300);
 		TransportAddress transportAddress = new TransportAddress(ip);
 		TransportClient client=new PreBuiltTransportClient(settings).addTransportAddress(transportAddress);
-
 		return new ElasticsearchTemplate(client);
 	}
 
